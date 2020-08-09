@@ -1,7 +1,8 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
-
-import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import TeacherItem from '../../components/TeacherItem';
+import Input from '../../components/Input';
+import Select from '../../components/Select';
 
 import './styles.css';
 
@@ -10,50 +11,41 @@ function TeacherList() {
     <div id="page-teacher-list" className="container">
       <PageHeader title="Estes são os proffys disponíveis.">
         <form id="search-teachers">
-          <div className="input-block">
-            <label htmlFor="subject">Matéria</label>
-            <input type="text" id="subject"></input>
-          </div>
-
-          <div className="input-block">
-            <label htmlFor="week_day">Dia da semana</label>
-            <input type="text" id="subject"></input>
-          </div>
-
-          <div className="input-block">
-            <label htmlFor="time">Hora</label>
-            <input type="text" id="subject"></input>
-          </div>
-
+        <Select
+            name="subject" 
+            label="Matéria" 
+            options={[
+              { value: 'Artes', label:'Artes' },
+              { value: 'Biologia', label:'Biologia' },
+              { value: 'Matemática', label:'Matemática' },
+              { value: 'Física', label:'Física' },
+              { value: 'Filosofia', label:'Filosofia' },
+              { value: 'História', label:'História' },
+              { value: 'Português', label:'Português' },
+              { value: 'Química', label:'Química' },
+            ]}
+          />
+          <Select
+            name="week_day" 
+            label="Dia da semana" 
+            options={[
+              { value: '0', label:'Domingo' },
+              { value: '1', label:'Segunda-feira' },
+              { value: '2', label:'Terça-feira' },
+              { value: '3', label:'Quarta-feira' },
+              { value: '4', label:'Quinta-feira' },
+              { value: '5', label:'Sexta-feira' },
+              { value: '6', label:'Sábado' },
+            ]}
+          />
+          <Input type="time" name="time" label="Hora" />
         </form>
       </PageHeader>
       <main>
-        <article className="teacher-item">
-          <header>
-            <img src="https://avatars0.githubusercontent.com/u/30126229?s=460&u=93ab4ea5fe6f2a59cc6fd14f0ce0839b1f67daa5&v=4" alt="Renata Guerra"/>
-            <div>
-              <strong>Renata Guerra</strong>
-              <span>Química</span>
-            </div>
-          </header>
-
-          <p>
-            Pessoa dura por fora mas mole por dentro.
-            <br /><br />
-            Apaixonada por tudo que tem botões e luzinhas, adora um eletronico e se possível tem todos que existem na face da terra. Seria uma ótima blogueirinha mas né!
-          </p>
-
-          <footer>
-            <p>
-              Preço/Hora
-              <strong>R$ 80,00</strong>
-            </p>
-            <button type="button">
-              <img src={whatsappIcon} alt="Whatsapp" />
-              Entrar em contato
-            </button>
-          </footer>
-        </article>
+        <TeacherItem />
+        <TeacherItem />
+        <TeacherItem />
+        <TeacherItem />
       </main>
 
     </div>
